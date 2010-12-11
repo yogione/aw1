@@ -1,11 +1,21 @@
 Aw1::Application.routes.draw do
-  get "pages/home"
-  get "pages/contact"
-   get "pages/about"
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+  get "users/new"
+  match '/signup',  :to => 'users#new'
 
+ # match '/users',    :to => 'pages#users'
+#
+  root :to => 'pages#home'
+
+#  get "pages/home"
+#  get "pages/contact"
+#   get "pages/about"
+#
   resources :stories
-
-  resources :users
+#
+ resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
